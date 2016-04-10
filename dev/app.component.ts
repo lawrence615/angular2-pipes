@@ -13,21 +13,21 @@ import {Component} from 'angular2/core';
       <section class="pipe">
         <h2>The Lowercase and UPPERCASE Pipe</h2>
         <input type="text" #inputCasePipes (keyup)="0">
-        <div>Output Lowercase: XX</div>
-        <div>Output Uppercase: XX</div>
+        <div>Output Lowercase: {{ inputCasePipes.value | lowercase}}</div>
+        <div>Output Uppercase: {{ inputCasePipes.value | uppercase}}</div>
       </section>
 
       <section class="pipe">
         <h2>The Slice Pipe</h2>
         <input type="text" #inputSlicePipe (keyup)="0"> - from <input type="text" #start (keyup)="0"> - to <input type="text" #end (keyup)="0">
-         <div>Output: XX</div>
+         <div>Output: {{ inputSlicePipe.value | slice:start.value:end.value}}</div>
       </section>
 
       <section class="pipe">
         <h2>Number Pipe</h2>
-        <input type="text" #inputNumberPipes (keyup)="0"> - currency: <input type="text" #currency (keyup)="0"><br>
-        <div>Decimal: XX</div>
-        <div>Currency: XX</div>
+        <input type="text" #inputNumberPipes (keyup)="0"> - currency: <input type="text" #currency (change)="0" value="EUR"><br>
+        <div>Decimal: {{1.0 * inputNumberPipes.value | number:'1.1-2' }}</div>
+        <div>Currency: {{1.0 * inputNumberPipes.value | currency:currency.value:currencyShort.checked:'1.2-2' }}</div>
         <input type="checkbox" #currencyShort checked (change)="0">Short currency code
       </section>
 
