@@ -34,7 +34,7 @@ import {Component} from 'angular2/core';
       <section class="pipe">
         <h2>Chaining Multiple Pipe (e.g. uppercase and slice)</h2>
         <input type="text" #inputChainPipes (keyup)="0">
-         <div>Output: XX</div>
+         <div>Output: {{ inputChainPipes.value | slice:1-3 | uppercase}}</div>
       </section>
 
       <!--<section class="pipe">-->
